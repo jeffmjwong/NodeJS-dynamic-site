@@ -7,11 +7,15 @@
 const http = require('http');
 // const url = require('url');
 
-const server = http.createServer((req, res) => {
+const server = http.createServer((request, response) => {
 
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  response.writeHead(200, { 'Content-Type': 'text/plain' });
+  setInterval(() => {
+    response.write(`${new Date()}\n`);
+  }, 1000);
+  // response.write('This is before hello world!\n')
 
-  res.end('Hello World!\n');
+  // response.end();
 });
 
 server.listen(4321);
