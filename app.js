@@ -8,13 +8,7 @@ const http = require('http');
 // const url = require('url');
 
 const server = http.createServer((request, response) => {
-
-  response.writeHead(200, { 'Content-Type': 'text/plain' });
-  setInterval(() => {
-    response.write(`${new Date()}\n`);
-  }, 1000);
-  // response.write('This is before hello world!\n')
-
+  homeRoute(request, response);
   // response.end();
 });
 
@@ -22,8 +16,14 @@ server.listen(4321);
 console.log('Server listening at localhost:4321');
 
 // 2. Handle HTTP route GET / and POST / i.e. Home
-  // if url === '/' and GET
-    // show search field
+function homeRoute(request, response) {
+  if (request.url === '/') {
+    response.writeHead(200, { 'Content-Type': 'text/plain' });
+    response.write('Header\n');
+    response.write('Search\n');
+    response.end('Footer\n');
+  }
+}
   // if url === '/' and POST
     // redirect to /:username
 
