@@ -9,6 +9,7 @@ const http = require('http');
 
 const server = http.createServer((request, response) => {
   homeRoute(request, response);
+  userRoute(request, response);
   // response.end();
 });
 
@@ -28,12 +29,22 @@ function homeRoute(request, response) {
     // redirect to /:username
 
 // 3. Handle HTTP route GET /:username i.e. /chalkers
+function userRoute(request, response) {
+  const username = request.url.replace('/', '');
+  if (username.length > 0) {
+    response.writeHead(200, { 'Content-Type': 'text/plain' });
+    response.write('Header\n');
+    response.write('Search\n');
+    response.end('Footer\n');
+  }
   // if url === '/...'
-    // get json from treehouse
-      // on "end"
-        // show profile
-      // on "error"
-        // show error
+  // get json from treehouse
+  // on "end"
+  // show profile
+  // on "error"
+  // show error
+
+}
 
 // 4. Function that handles the reading of files and merge in value
   // read from file and get a string
