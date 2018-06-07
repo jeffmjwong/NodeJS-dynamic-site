@@ -4,7 +4,7 @@ const renderer = require('./renderer.js')
 // Handle HTTP route GET / and POST / i.e. Home
 function home(request, response) {
   if (request.url === '/') {
-    response.writeHead(200, { 'Content-Type': 'text/plain' });
+    response.writeHead(200, { 'Content-Type': 'text/html' });
     renderer.view('header', {}, response);
     renderer.view('search', {}, response);
     renderer.view('footer', {}, response);
@@ -18,7 +18,7 @@ function home(request, response) {
 function user(request, response) {
   const username = request.url.replace('/', '');
   if (username.length > 0) {
-    response.writeHead(200, { 'Content-Type': 'text/plain' });
+    response.writeHead(200, { 'Content-Type': 'text/html' });
     renderer.view('header', {}, response);
 
     // get json from treehouse
