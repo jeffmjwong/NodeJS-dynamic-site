@@ -12,13 +12,7 @@ const http = require('http');
 const server = http.createServer((request, response) => {
   router.home(request, response);
   router.user(request, response);
-  // response.end();
 });
 
 server.listen(4321);
 console.log('Server listening at localhost:4321');
-
-
-// Function that handles the reading of files and merge in value
-  // read from file and get a string
-    // merge values into string
